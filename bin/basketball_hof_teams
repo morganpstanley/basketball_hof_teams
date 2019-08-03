@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/basketball_hof_teams'
+
+h = BasketballHofTeams::Scraper.new
+h.create_teams
+
+
+
