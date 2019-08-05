@@ -14,6 +14,7 @@ class BasketballHofTeams::Scraper
     def create_teams
         self.scrape_teams.each do |team|
             BasketballHofTeams::Team.new_from_scraper(team)
-            end
         end
+    end
+
 end
