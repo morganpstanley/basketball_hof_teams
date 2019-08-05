@@ -3,6 +3,8 @@ require 'pry'
 class BasketballHofTeams::Team 
     attr_accessor :name, :description, :hof_date, :facts, :url, :doc
 
+    @@all = []
+
     def self.new_from_scraper(team)
         self.new(team.css("span.hof-res-lbl")[0].text, 
         "http://www.hoophall.com#{team.css(".hof-search-res-overlay")[0]["href"]}")
@@ -14,6 +16,7 @@ class BasketballHofTeams::Team
         @name = name
         @url = url
         self.doc = self.doc
+        @@all << self
     end
 
     def description
@@ -39,6 +42,10 @@ class BasketballHofTeams::Team
     def doc
         @doc ||=  Nokogiri::HTML(open(self.url))
         binding.pry
+    end
+
+    def self.all
+        @@all
     end
 
 end
