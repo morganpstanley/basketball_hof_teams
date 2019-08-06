@@ -15,7 +15,7 @@ class BasketballHofTeams::Team
     end
 
     def description
-        description ||= doc.css("p.p1").text
+        description ||= doc.css("div.page-body p").text
     end
 
     def hof_date 
