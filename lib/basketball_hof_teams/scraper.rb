@@ -8,11 +8,11 @@ class BasketballHofTeams::Scraper
     end
 
     def scrape_teams
-        self.get_page.css("div.hof-search-res-item")
+        get_page.css("div.hof-search-res-item")
     end
 
     def create_teams
-        self.scrape_teams.each do |team|
+        scrape_teams.each do |team|
             BasketballHofTeams::Team.new_from_scraper(team)
         end
     end

@@ -28,7 +28,7 @@ class BasketballHofTeams::CLI
             input = gets.strip.downcase
         end
         if input == "y"
-            self.run
+            run
         elsif input == "n"
             puts ""
             puts "Hope you learned something cool."

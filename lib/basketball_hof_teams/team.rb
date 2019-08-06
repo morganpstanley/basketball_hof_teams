@@ -37,7 +37,7 @@ class BasketballHofTeams::Team
     end
 
     def doc
-        @doc ||=  Nokogiri::HTML(open(self.url))
+        @doc ||=  Nokogiri::HTML(open(url))
     end
 
     def self.all
