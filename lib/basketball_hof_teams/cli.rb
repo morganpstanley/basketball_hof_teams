@@ -21,6 +21,7 @@ class BasketballHofTeams::CLI
 
         puts "Would you like to see another team? (y/n)"
         input = gets.strip.downcase
+
         until input == "y" || input == "n"
             puts "I don't understand that input"
             puts "Would you like to see another team? (y/n)"
@@ -48,13 +49,13 @@ class BasketballHofTeams::CLI
 
     def show_team(team)
         puts ""
-        puts ""
-        puts "Team name - #{team.name}"
-        puts "Enshrined - #{team.hof_date}"
-        puts "Description -"
+        puts "--------------------------"
+        puts "Team name: #{team.name}"
+        puts "Enshrined: #{team.hof_date}"
+        puts "Description:"
         puts "#{team.description}"
         puts ""
-        puts "----------Facts-----------"
+        puts "Facts:"
         i = 0
         while team.facts[i]
             puts "#{team.facts[i]}"
