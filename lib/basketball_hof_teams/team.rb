@@ -1,5 +1,3 @@
-require 'pry'
-
 class BasketballHofTeams::Team 
     attr_accessor :name, :description, :hof_date, :facts, :url, :doc
 
@@ -10,38 +8,36 @@ class BasketballHofTeams::Team
         "http://www.hoophall.com#{team.css(".hof-search-res-overlay")[0]["href"]}")
     end
 
-    #   ruby bin/basketball_hof_teams
-
-    def initialize(name, url)
+    def initialize(name=nil, url=nil)
         @name = name
         @url = url
-        self.doc = self.doc
         @@all << self
     end
 
     def description
-        @description ||= @doc.css("p.p1").text
+        description ||= doc.css("p.p1").text
     end
 
     def hof_date 
-        @hof_date ||= @doc.css("span.stat-cat-label").text
+        hof_date ||= doc.css("span.stat-cat-label").text
     end
 
     def facts
         @facts = []
         i = 0
-        while @doc.css("div.stat-item")[i]
-            @facts << @doc.css("div.stat-item")[i].to_s.gsub(/<(.*?[^>])>/){|s| s = " "}.strip.gsub("\n\t", "-")
+        while doc.css("div.stat-item")[i]
+            @facts << doc.css("div.stat-item")[i].to_s.gsub(/<(.*?[^>])>/){|s| s = " "}.strip.gsub("\n\t", "-")
             i += 1
         end 
         @facts
-        binding.pry
     end
 
+    def self.find(team)
+        self.all[team-1]
+    end
 
     def doc
         @doc ||=  Nokogiri::HTML(open(self.url))
-        binding.pry
     end
 
     def self.all

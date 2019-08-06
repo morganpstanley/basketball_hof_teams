@@ -2,8 +2,4 @@
 
 require_relative '../lib/basketball_hof_teams'
 
-h = BasketballHofTeams::Scraper.new
-h.create_teams
-
-
-
+BasketballHofTeams::CLI.new.call
