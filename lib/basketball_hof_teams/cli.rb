@@ -19,9 +19,6 @@ class BasketballHofTeams::CLI
 
         show_team(team)
 
-        puts "Would you like to see another team? (y/n)"
-        input = gets.strip.downcase
-
         until input == "y" || input == "n"
             puts "I don't understand that input"
             puts "Would you like to see another team? (y/n)"
