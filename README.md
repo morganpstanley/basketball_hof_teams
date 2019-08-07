@@ -1,28 +1,30 @@
 # BasketballHofTeams
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/basketball_hof_teams`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome. Here you may learn more about the teams in the Basketball Hall of Fame! 
 
-TODO: Delete this and the text above, and describe your gem
+Though there are hundreds of players and coaches in the Hall of Fame, very few teams are bestowed this honor.
+I created this gem so that people can learn why these teams stood out.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Because this gem hasn't been published, you'll have to clone it by typing in your terminal:
 
-```ruby
-gem 'basketball_hof_teams'
-```
+`git clone git@github.com:morganpstanley/basketball_hof_teams.git`
 
-And then execute:
+That should clone it onto your computer.
+Then type 
 
-    $ bundle
+`cd basketball_hof_teams`
 
-Or install it yourself as:
+to jump into the directory, and finally type in
 
-    $ gem install basketball_hof_teams
+`ruby bin/basketball_hof_teams`
+
+to run the program.
 
 ## Usage
 
-TODO: Write usage instructions here
+To use the gem, first use the above directions to get it running on your machine. After a list of teams pops up, type in the number to the left of any team to learn more about that team. Then, when prompted, either type in 'y' to go back and look at other teams, or 'n' to exit the program.
 
 ## Development
 
