@@ -14,5 +14,4 @@ class BasketballHofTeams::Scraper
             BasketballHofTeams::Team.new_from_scraper(team)
         end
     end
-
 end
