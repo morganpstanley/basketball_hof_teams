@@ -6,24 +6,21 @@ class BasketballHofTeams::CLI
         run
     end
 
-    #  ruby bin/basketball_hof_teams
-
     def run
 
         main_index
 
         puts "Type in the number of a team to learn more:"
-        input = gets.strip.to_i
+            input = gets.strip.to_i
+        input = check_input1(input)
 
         team = BasketballHofTeams::Team.find(input.to_i)
-
         show_team(team)
 
-        until input == "y" || input == "n"
-            puts "I don't understand that input"
-            puts "Would you like to see another team? (y/n)"
-            input = gets.strip.downcase
-        end
+        puts puts "Would you like to see another team? (y/n)"
+        input = gets.strip.downcase
+        input = check_input2(input)
+
         if input == "y"
             run
         elsif input == "n"
@@ -60,6 +57,26 @@ class BasketballHofTeams::CLI
         end
         puts "--------------------------"
         puts ""
+    end
+
+    def check_input1(input)
+        until (1..BasketballHofTeams::Team.all.length).include?(input)
+            puts ""
+            puts "That input doesn't match a team."
+            puts "Type in the number of a team to learn more:"
+            input = gets.strip.to_i
+        end
+        input
+    end
+
+    def check_input2(input)
+        until input == "y" || input == "n"
+            puts ""
+            puts "I don't understand that input"
+            puts "Would you like to see another team? (y/n)"
+            input = gets.strip.downcase
+        end
+        input
     end
 
 end
